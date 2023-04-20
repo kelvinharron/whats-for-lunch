@@ -1,8 +1,8 @@
 interface Props {
-    lunchOptions: string[]
+    lunchOptions: string[];
 }
 
-export function LunchListTable({lunchOptions}: Props) {
+export function LunchListTable(props: Props) {
 
     return (
         <table>
@@ -12,9 +12,14 @@ export function LunchListTable({lunchOptions}: Props) {
             </tr>
             </thead>
             <tbody>
-            {lunchOptions.map((lunchOption, index) => (
+            {props.lunchOptions.map((lunchOption, index) => (
                 <tr key={index}>
                     <td>{lunchOption}</td>
+                    <td>
+                        <button type={"submit"}>
+                            x
+                        </button>
+                    </td>
                 </tr>
             ))}
             </tbody>

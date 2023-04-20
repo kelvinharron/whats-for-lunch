@@ -1,6 +1,7 @@
 import {ChangeEvent, FormEvent, useState} from "react";
 import {LunchListTable} from "./LunchListTable";
 import {AddLunchForm} from "./AddLunchForm";
+import {Decider} from "./Decider";
 
 const initialLunchOptions = [
     "McDonalds",
@@ -11,8 +12,11 @@ export function LunchList() {
 
     const [lunchOptions, setLunchOptions] = useState<string[]>(initialLunchOptions);
     const [newLunchOptionText, setNewLunchOptionText] = useState('');
+    const [selectedLunchOption, setSelectedLunchOption] = useState('');
 
     const addLunchOption = (event: FormEvent<HTMLFormElement>) => {
+        if (newLunchOptionText === "") return
+
         setLunchOptions(lunchOptions.concat([newLunchOptionText]));
         setNewLunchOptionText('')
 
@@ -27,12 +31,22 @@ export function LunchList() {
         setLunchOptions(newLunchOptions)
     }
 
+    const onDecideClicked = () => {
+        const chosenOptionIndex = Math.floor(Math.random() * lunchOptions.length)
+        setSelectedLunchOption(lunchOptions[chosenOptionIndex])
+    }
+
     return (
         <div>
             <AddLunchForm addLunchOption={addLunchOption}
                           onChanged={onChanged}
                           newLunchOptionText={newLunchOptionText}/>
             <LunchListTable lunchOptions={lunchOptions}/>
+            <Decider lunchOptions={lunchOptions}
+                     onDecideClicked={onDecideClicked}/>
+            <div>
+                <h1>{selectedLunchOption}</h1>
+            </div>
         </div>
     )
 }
