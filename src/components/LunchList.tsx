@@ -15,8 +15,6 @@ export function LunchList() {
     const [selectedLunchOption, setSelectedLunchOption] = useState('');
 
     const addLunchOption = (event: FormEvent<HTMLFormElement>) => {
-        if (newLunchOptionText === "") return
-
         setLunchOptions(lunchOptions.concat([newLunchOptionText]));
         setNewLunchOptionText('')
 
@@ -41,7 +39,8 @@ export function LunchList() {
             <AddLunchForm addLunchOption={addLunchOption}
                           onChanged={onChanged}
                           newLunchOptionText={newLunchOptionText}/>
-            <LunchListTable lunchOptions={lunchOptions}/>
+            <LunchListTable lunchOptions={lunchOptions}
+                            onDeleteClicked={deleteLunchOption}/>
             <Decider lunchOptions={lunchOptions}
                      onDecideClicked={onDecideClicked}/>
             <div>
