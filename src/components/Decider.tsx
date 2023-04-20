@@ -1,11 +1,10 @@
-import React, {useMemo} from "react";
+import React from "react";
 
 interface Props {
     lunchOptions: string[]
     onDecideClicked: () => void
 }
 export function Decider(props: Props) {
-
 
     return (
         <div>
