@@ -7,6 +7,6 @@
   },
   "author": "Kelvin Harron",
   "workspaces": [
-    "website"
+    "./website"
   ]
 }
