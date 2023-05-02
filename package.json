@@ -2,7 +2,7 @@
   "name": "whats-for-lunch",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "build": "npm run build --website --if-present",
     "test": "npm run test --workspaces --if-present"
   },
   "author": "Kelvin Harron",
