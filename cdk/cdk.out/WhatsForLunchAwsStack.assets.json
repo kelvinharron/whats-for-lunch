@@ -1,0 +1,19 @@
+{
+  "version": "31.0.0",
+  "files": {
+    "ded391eb4adf453e1232ccad07c82b32b6d444d349e52dd811abc544b8234ea3": {
+      "source": {
+        "path": "WhatsForLunchAwsStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "ded391eb4adf453e1232ccad07c82b32b6d444d349e52dd811abc544b8234ea3.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

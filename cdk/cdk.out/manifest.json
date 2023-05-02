@@ -1,0 +1,88 @@
+{
+  "version": "31.0.0",
+  "artifacts": {
+    "WhatsForLunchAwsStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "WhatsForLunchAwsStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "WhatsForLunchAwsStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "WhatsForLunchAwsStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/ded391eb4adf453e1232ccad07c82b32b6d444d349e52dd811abc544b8234ea3.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "WhatsForLunchAwsStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "WhatsForLunchAwsStack.assets"
+      ],
+      "metadata": {
+        "/WhatsForLunchAwsStack/myBucketKMSKey/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myBucketKMSKeyF9D9CC4E"
+          }
+        ],
+        "/WhatsForLunchAwsStack/myBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myBucket5AF9C99B"
+          }
+        ],
+        "/WhatsForLunchAwsStack/myBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "myBucketPolicyDAC36B74"
+          }
+        ],
+        "/WhatsForLunchAwsStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/WhatsForLunchAwsStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/WhatsForLunchAwsStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/WhatsForLunchAwsStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "WhatsForLunchAwsStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
